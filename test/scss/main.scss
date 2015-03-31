@@ -1,0 +1,111 @@
+@import "common";
+html, body, .fullscreen {
+    overflow: hidden;
+}
+body {
+    margin: 0;
+}
+nav {
+    padding: 5px;
+    opacity: 0.1;
+
+    background-color: gray;
+    box-shadow: 0 0 5px gray;
+    position: relative;
+    &:hover {
+        opacity: 0.6;
+        background-color: black;
+        box-shadow: 0;
+    }
+    ul {
+        float: left;
+        li {
+            display: inline-block;
+            color: white;
+            font-size: 0.9em;
+            margin: 0px 15px;
+            width: 60px;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .hotline {
+        position: absolute;
+        right: 10%;
+        top: 1em;
+        color: white;
+        float: left;
+    }
+}
+.logo {
+    position: relative;
+    margin-left: 180px;
+    width: 100px;
+    min-height: 50px;
+    background: url('../img/logo.png') no-repeat center;
+    background-size: contain;
+    float: left;
+}
+.fullscreen {
+    .slogan {
+        width: 100%;
+        position: absolute;
+        top: 40%;
+        h1, h2, p {
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+        }
+        p {
+            font-size: 1em;
+        }
+    }
+    .slogan.loading {
+        width: 40%;
+        left: 30%;
+        top: 20%;
+        .title {
+            padding-top: 2em;
+            h2 {
+                font-size: 1.2em;
+                margin: 0;
+                text-align: left;
+            }
+        }
+        .logo {
+            margin-left: 0;
+            width: 200px;
+            height: 100px;
+        }
+        p {
+            text-align: left;
+        }
+    }
+    .progress-bar {
+        position: absolute;
+        bottom: 20%;
+        left: 40%;
+        width: 20%;
+        progress {
+            width: 100%;
+        }
+        p {
+            font-size: 0.8em;
+            color: white;
+            text-align: center;
+            opacity: 0.5;
+        }
+    }
+}
+
+

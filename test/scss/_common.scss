@@ -1,0 +1,28 @@
+.fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.centered {
+    margin: 0 auto;
+}
+.body-width {
+    min-width: 1000px;
+    width: 70%;
+    overflow: hidden;
+}
+.border-test {
+    border: 1px solid red;
+}
+.blur-bg {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    z-index: 0;
+}
+.blur-content {
+    z-index: 1;
+    overflow: hidden;
+}
