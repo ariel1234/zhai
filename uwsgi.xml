@@ -5,7 +5,7 @@
     <chdir>/home/kyan001/src/zhai</chdir>
     <uid>www-data</uid>
     <gid>www-data</gid>
-    <pythonpath>/var/www/portal</pythonpath>
+    <pythonpath>/home/kyan001/src/zhai</pythonpath>
     <module>zhai.wsgi:application</module>
     <master/>
     <processes>4</processes>
