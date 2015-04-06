@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+    <title>zhai</title>
+</head>  
+<body> 
+    {% if house_list %}
+    <ul>
+    {% for house in house_list %}
+        <li><a href="{% url 'main:house_detail' house.id %} {{house.id}}">{{house.name}}</a></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</body> 
+</html>
