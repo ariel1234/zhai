@@ -31,7 +31,10 @@
             var val = $('.progress-bar progress').val();
             $('.progress-bar progress').val(val+1);
             if (val+1 == 100) {
-                window.location = '/home/';
+                $('.fullscreen').fadeOut(500, function(){
+                    window.location = '/home/';
+                });
+                
             }
         }, 10);
     })
