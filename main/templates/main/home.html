@@ -10,7 +10,7 @@
     <script type="text/javascript" src="{% static 'main/js/jquery.lazyload.min.js' %}"></script>
 </head>
 <body>
-    <div class="fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+    <div class="fullscreen" style="background:url('{% static 'main/img/season-01.jpg' %}'); background-size: cover;">
         <nav>
             <div class="centered body-width ">
                 <div class="logo "></div>
@@ -26,23 +26,16 @@
             </div>
             <div class="hotline">400-800-0000</div>
         </nav>
-        <div class="slogan">
-            <h1>墅宅私享游</h1>
-            <h2>有思想的旅游体验</h2>
-        </div>
 
     </div>
-    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+    <div class="page fullscreen" style="background:url('{% static 'main/img/season-02.jpg' %}'); background-size: cover;">
         <h1>2</h1>
     </div>
-    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+    <div class="page fullscreen" style="background:url('{% static 'main/img/season-03.jpg' %}'); background-size: cover;">
         <h1>3</h1>
     </div>
-    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+    <div class="page fullscreen" style="background:url('{% static 'main/img/season-04.jpg' %}'); background-size: cover;">
         <h1>4</h1>
-    </div>
-    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
-        <h1>5</h1>
     </div>
 </body>
 <script>
@@ -88,7 +81,7 @@ function wheelScrollFunc(e) {
             return;
         }
     }
-    smoothScroll.animateScroll(null, '.fullscreen:nth-child('+currentPageIndex+')', { speed:1000, easing:'easeOutCubic'});
+    smoothScroll.animateScroll(null, '.fullscreen:nth-child('+(currentPageIndex+1)+')', { speed:1000, easing:'easeOutCubic'});
 }
 $(function(){
     smoothScroll.init({

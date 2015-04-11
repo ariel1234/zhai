@@ -19,7 +19,7 @@
             <p style="margin-left: 30px;">Villa Zhai, key to your home miles away</p>
         </div>
         <div class="progress-bar">
-            <progress max="100" value="60"></progress>
+            <progress max="100" value="0"></progress>
             <p>loading...</p>
         </div>
     </div>
@@ -27,9 +27,16 @@
 <script>
     $(function(){
         $('.fullscreen').height($(window).height());
-        setTimeout(function(){
-            window.location = '/home/';
-        },1000); 
+        setInterval(function(){
+            var val = $('.progress-bar progress').val();
+            $('.progress-bar progress').val(val+1);
+            if (val+1 == 100) {
+                $('.fullscreen').fadeOut(500, function(){
+                    window.location = '/home/';
+                });
+                
+            }
+        }, 10);
     })
 </script>
 </html>
