@@ -6,6 +6,8 @@
     <title>宅</title>
     <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'main/css/main.css' %}"></link>
     <script src="{% static 'main/js/jquery.min.js' %}"></script>
+    <script src="{% static 'main/js/smoothscroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/js/jquery.lazyload.min.js' %}"></script>
 </head>
 <body>
     <div class="fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
@@ -30,10 +32,85 @@
         </div>
 
     </div>
+    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+        <h1>2</h1>
+    </div>
+    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+        <h1>3</h1>
+    </div>
+    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+        <h1>4</h1>
+    </div>
+    <div class="page fullscreen" style="background:url('{% static 'main/img/1.JPG' %}'); background-size: cover;">
+        <h1>5</h1>
+    </div>
 </body>
 <script>
-    $(function(){
-        $('.fullscreen').height($(window).height());
-    })
+var isScroll = false;
+var currentPageIndex = 0;
+function bodyResize() {
+    //bodyWidth = $(document.body).innerWidth();
+    winHeight = $(window).height();
+    if ( $('.fullscreen').length ) {
+        $('.fullscreen').each(function() {
+            $(this).height(winHeight);
+        });
+    }
+}
+
+function wheelScrollFunc(e) {
+    if (isScroll)
+        return;
+    /*
+    scrollCount = scrollCount+1;
+    if (scrollCount == 1)
+        return;
+    else if (scrollCount == 2)
+        scrollCount = 0;
+    */
+    var direct = 0;
+    e = e || window.event;
+    if (e.wheelDelta)
+        direct = e.wheelDelta > 0;
+    else if (e.detail)
+        direct = e.detail < 0;
+    if (direct > 0) {
+        currentPageIndex = currentPageIndex - 1;
+        if (currentPageIndex < 0) {
+            currentPageIndex = 0;
+            return;
+        }
+
+    } else {
+        currentPageIndex = currentPageIndex + 1;
+        if (currentPageIndex > $('.fullscreen').length-1) {
+            currentPageIndex = $('.fullscreen').length-1;
+            return;
+        }
+    }
+    smoothScroll.animateScroll(null, '.fullscreen:nth-child('+currentPageIndex+')', { speed:1000, easing:'easeOutCubic'});
+}
+$(function(){
+    smoothScroll.init({
+        speed: 1000,
+        easing: 'easeInOutCubic',
+        offset: 0,
+        updateURL: false,
+        callbackBefore: function ( toggle, anchor ) {isScroll = true;},
+        callbackAfter: function ( toggle, anchor ) {isScroll = false;}
+    });
+    $(window).resize(bodyResize);
+
+    if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', wheelScrollFunc, false);
+    }
+    window.onmousewheel = document.onmousewheel = wheelScrollFunc;
+    bodyResize();
+    
+    $('.fullscreen').lazyload({
+        effect: 'fadeIn'
+    });
+
+})
 </script>
 </html>
