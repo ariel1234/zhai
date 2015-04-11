@@ -24,6 +24,10 @@ def loading(request):
 
 def home(request):
     return render(request, 'main/home.html', {})
+# debug session start
+def dbg(request):
+    return render(request, 'main/house_detail.html', {})
+# debug session end
 
 class IndexView(generic.ListView):
     model = House
